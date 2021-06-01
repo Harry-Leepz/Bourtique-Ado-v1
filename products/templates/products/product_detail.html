@@ -36,6 +36,13 @@
                     <p class="lead mb-0 text-left font-wight-bold">
                         ${{ product.price }}
                     </p>
+                    {% if product.category %}
+                        <p>
+                            <a class="text-muted" href="{% url 'products' %}?category={{ products.category.name }}">
+                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                            </a>
+                        </p>
+                    {% endif %}
                     {% if product.rating %}
                         <small class="text-muted"><i class="fas fa-star mr-1"></i>
                             {{ product.rating }} / 5
